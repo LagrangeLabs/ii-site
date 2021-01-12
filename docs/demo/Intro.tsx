@@ -24,7 +24,8 @@ const INTRO_ZH = [
   },
   {
     name: '开发辅助工具 ii-cli',
-    img: 'https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png',
+    img:
+      'https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png',
     desc: '提供项目代码生成等能力，帮助快速开发模块',
     url: 'https://github.com/LagrangeLabs/ii-cli',
     target: '_blank',
@@ -48,7 +49,8 @@ const INTRO_EN = [
   },
   {
     name: 'Dev Tools ii-cli',
-    img: 'https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png',
+    img:
+      'https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png',
     desc:
       'Provide project code generation and other capabilities to help rapid development',
     url: 'https://github.com/LagrangeLabs/ii-cli',
@@ -72,13 +74,17 @@ export default () => {
         {INTRO.map(item => {
           return (
             <Col span={8}>
-              <a className='intro-item' href={item.url} target={item.target}>
-                <img src={item.img} alt="" style={{
-                  maxWidth: '100%',
-                  height: '175px'
-                }}/>
-                <div className='title'>{item.name}</div>
-                <div className='desc'>{item.desc}</div>
+              <a className="intro-item" href={item.url} target={item.target}>
+                <img
+                  src={item.img}
+                  alt=""
+                  style={{
+                    maxWidth: '100%',
+                    height: '175px',
+                  }}
+                />
+                <div className="title">{item.name}</div>
+                <div className="desc">{item.desc}</div>
               </a>
             </Col>
           );

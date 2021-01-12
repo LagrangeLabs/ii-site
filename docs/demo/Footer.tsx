@@ -57,11 +57,12 @@ const FOOTER_EN = {
 };
 
 export default () => {
-  const FOOTER = location.pathname.indexOf('zh-CN') !== -1 ? FOOTER_ZH : FOOTER_EN
+  const FOOTER =
+    location.pathname.indexOf('zh-CN') !== -1 ? FOOTER_ZH : FOOTER_EN;
   const keysArray = Object.keys(FOOTER) as (keyof typeof FOOTER)[];
   return (
     <div>
-      <div style={{height: 336}}></div>
+      <div style={{ height: 336 }}></div>
       <div
         style={{
           boxSizing: 'border-box',
@@ -83,13 +84,18 @@ export default () => {
         >
           <Row>
             {keysArray.map(item => {
-              const array: typeof SOLUTIONS  = FOOTER[item];
+              const array: typeof SOLUTIONS = FOOTER[item];
               return (
                 <Col span={6}>
                   <div style={{ fontSize: 16, marginBottom: 20 }}>{item}</div>
                   {array.map(each => (
                     <a
-                      style={{ padding: '5px 0', display: 'block', color: '#f6f7f8', fontSize: 14 }}
+                      style={{
+                        padding: '5px 0',
+                        display: 'block',
+                        color: '#f6f7f8',
+                        fontSize: 14,
+                      }}
                       target={each.target}
                       href={each.url}
                     >

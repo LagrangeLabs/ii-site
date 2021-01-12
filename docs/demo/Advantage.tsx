@@ -93,7 +93,8 @@ const featuresEN = [
 ];
 
 export default () => {
-  const INTRO = location.pathname.indexOf('zh-CN') !== -1 ? featuresCN : featuresEN;
+  const INTRO =
+    location.pathname.indexOf('zh-CN') !== -1 ? featuresCN : featuresEN;
   return (
     <div
       style={{
@@ -107,13 +108,13 @@ export default () => {
       <Row gutter={24}>
         {INTRO.map(item => {
           return (
-              <Col span={8} className='advantage-item'>
-                <div className="img-con">
-                <img src={item.src} alt="" className='img'/>
-                </div>
-                <div className='title'>{item.title}</div>
-                <div className='desc'>{item.content}</div>
-              </Col>
+            <Col span={8} className="advantage-item">
+              <div className="img-con">
+                <img src={item.src} alt="" className="img" />
+              </div>
+              <div className="title">{item.title}</div>
+              <div className="desc">{item.content}</div>
+            </Col>
           );
         })}
       </Row>

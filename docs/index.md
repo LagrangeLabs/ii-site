@@ -20,4 +20,3 @@ hero:
 <code src='./demo/Intro.tsx' inline />
 <code src='./demo/Advantage.tsx' inline />
 <code src='./demo/Footer.tsx' inline />
-

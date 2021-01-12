@@ -8,12 +8,16 @@ nav:
 ---
 
 ### 主题
-由于项目采用ant-design + umi，因此主题颜色定制[antd theme](https://ant.design/docs/react/customize-theme-cn)
+
+由于项目采用 ant-design + umi，因此主题颜色定制[antd theme](https://ant.design/docs/react/customize-theme-cn)
 
 ### 容器化
-主要介绍一下 nginx配置两个比较重要的转发
-- 第一个是history路由，刷新页面时保证能加载到正确的文件
+
+主要介绍一下 nginx 配置两个比较重要的转发
+
+- 第一个是 history 路由，刷新页面时保证能加载到正确的文件
 - 第二个是前端对后端接口做的转发，防止跨域等问题
+
 ```
 location / {
   include /etc/nginx/mime.types;

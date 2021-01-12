@@ -6,4 +6,3 @@ nav:
   title: Solutions
   order: 2
 ---
-

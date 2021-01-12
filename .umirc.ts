@@ -8,5 +8,5 @@ export default defineConfig({
   styles: [
     'https://cdn.bootcdn.net/ajax/libs/antd/4.9.3/antd.css',
     './global.css',
-  ]
+  ],
 });
