@@ -8,8 +8,5 @@ export default defineConfig({
   base: '/ii-site',
   history: { type: 'hash' },
   // more config: https://d.umijs.org/config
-  styles: [
-    'https://cdn.bootcdn.net/ajax/libs/antd/4.9.3/antd.css',
-    './global.css',
-  ],
+  styles: ['https://cdn.bootcdn.net/ajax/libs/antd/4.9.3/antd.css'],
 });
