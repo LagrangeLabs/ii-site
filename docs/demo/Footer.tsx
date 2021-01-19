@@ -59,6 +59,7 @@ const FOOTER_EN = {
 export default () => {
   const FOOTER =
     location.pathname.indexOf('zh-CN') !== -1 ? FOOTER_ZH : FOOTER_EN;
+  console.log(location, location.pathname.indexOf('zh-CN'), 'cn');
   console.log(FOOTER, 'FOOTER');
   const keysArray = Object.keys(FOOTER) as (keyof typeof FOOTER)[];
   return (
