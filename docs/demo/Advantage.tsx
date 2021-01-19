@@ -98,7 +98,7 @@ export default () => {
   return (
     <div
       style={{
-        width: '1135px',
+        width: '1200px',
         margin: '40px auto',
         color: '#f6f7f8',
         display: 'flex',

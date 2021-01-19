@@ -59,19 +59,19 @@ const FOOTER_EN = {
 export default () => {
   const FOOTER =
     location.pathname.indexOf('zh-CN') !== -1 ? FOOTER_ZH : FOOTER_EN;
+  console.log(FOOTER, 'FOOTER');
   const keysArray = Object.keys(FOOTER) as (keyof typeof FOOTER)[];
   return (
     <div>
-      <div style={{ height: 336 }}></div>
+      {/* <div style={{ height: 336, position: 'relative' }}></div> */}
       <div
         style={{
           boxSizing: 'border-box',
           paddingTop: '86px',
-          position: 'fixed',
-          background: '#1a1d2b',
-          bottom: 0,
+          position: 'absolute',
           left: 0,
           right: 0,
+          background: '#1a1d2b',
           height: 366,
         }}
       >
@@ -86,7 +86,7 @@ export default () => {
             {keysArray.map(item => {
               const array: typeof SOLUTIONS = FOOTER[item];
               return (
-                <Col span={6}>
+                <Col span={6} style={{ textAlign: 'center' }}>
                   <div style={{ fontSize: 16, marginBottom: 20 }}>{item}</div>
                   {array.map(each => (
                     <a

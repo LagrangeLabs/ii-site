@@ -46,3 +46,6 @@
 .__dumi-default-navbar-logo, .__dumi-default-navbar-logo:active, .__dumi-default-navbar-logo:hover {
   color: transparent !important;
 }
+.__dumi-default-layout-hero + .__dumi-default-layout-content{
+  max-width: 1200px;
+}
