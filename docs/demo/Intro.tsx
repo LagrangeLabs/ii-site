@@ -59,7 +59,7 @@ const INTRO_EN = [
 ];
 
 export default () => {
-  const INTRO = location.pathname.indexOf('zh-CN') !== -1 ? INTRO_ZH : INTRO_EN;
+  const INTRO = location.hash.indexOf('zh-CN') !== -1 ? INTRO_ZH : INTRO_EN;
   return (
     <div
       style={{
@@ -71,9 +71,9 @@ export default () => {
       }}
     >
       <Row gutter={24}>
-        {INTRO.map(item => {
+        {INTRO.map((item, index) => {
           return (
-            <Col span={8}>
+            <Col span={8} key={index}>
               <a className="intro-item" href={item.url} target={item.target}>
                 <img
                   src={item.img}

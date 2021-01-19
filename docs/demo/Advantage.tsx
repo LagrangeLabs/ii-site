@@ -93,8 +93,7 @@ const featuresEN = [
 ];
 
 export default () => {
-  const INTRO =
-    location.pathname.indexOf('zh-CN') !== -1 ? featuresCN : featuresEN;
+  const INTRO = location.hash.indexOf('zh-CN') !== -1 ? featuresCN : featuresEN;
   return (
     <div
       style={{
@@ -106,9 +105,9 @@ export default () => {
       }}
     >
       <Row gutter={24}>
-        {INTRO.map(item => {
+        {INTRO.map((item, index) => {
           return (
-            <Col span={8} className="advantage-item">
+            <Col span={8} className="advantage-item" key={index}>
               <div className="img-con">
                 <img src={item.src} alt="" className="img" />
               </div>

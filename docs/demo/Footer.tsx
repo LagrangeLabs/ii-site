@@ -4,13 +4,8 @@ import { Row, Col } from 'antd';
 
 const CODE_LIB = [
   {
-    name: 'ii-block-template',
-    url: 'https://code.ii-ai.tech/ued/ii-block-template',
-    target: '_blank',
-  },
-  {
-    name: 'ii-admin-pro',
-    url: 'https://github.com/LagrangeLabs/ii-admin-pro',
+    name: 'ii-cli',
+    url: 'https://github.com/LagrangeLabs/ii-cli',
     target: '_blank',
   },
   {
@@ -19,17 +14,17 @@ const CODE_LIB = [
     target: '_blank',
   },
   {
-    name: 'ii-cli',
-    url: 'https://github.com/LagrangeLabs/ii-cli',
+    name: 'ii-admin-pro',
+    url: 'https://github.com/LagrangeLabs/ii-admin-pro',
+    target: '_blank',
+  },
+  {
+    name: 'ii-block-template',
+    url: 'https://code.ii-ai.tech/ued/ii-block-template',
     target: '_blank',
   },
 ];
 const SOLUTIONS = [
-  {
-    name: 'ii-admin-charts',
-    url: 'https://github.com/LagrangeLabs/ii-admin-charts',
-    target: '_blank',
-  },
   {
     name: 'ii-admin-ui',
     url: 'https://github.com/LagrangeLabs/ii-admin-ui',
@@ -41,26 +36,56 @@ const SOLUTIONS = [
     target: '_blank',
   },
   {
+    name: 'ii-admin-charts',
+    url: 'https://github.com/LagrangeLabs/ii-admin-charts',
+    target: '_blank',
+  },
+  {
     name: 'ii-admin-business',
     url: 'https://github.com/LagrangeLabs/ii-admin-business',
     target: '_blank',
   },
 ];
 
+const GROUP = [
+  {
+    name: '实在智能前端团队@II Team',
+    url: 'https://www.yuque.com/ii-team',
+    target: '_blank',
+  },
+];
+const RESOURCE = [
+  {
+    name: 'react',
+    url: 'https://react.docschina.org/',
+    target: '_blank',
+  },
+  {
+    name: 'antd',
+    url: 'https://ant.design/index-cn',
+    target: '_blank',
+  },
+  {
+    name: 'bizcharts',
+    url: 'https://bizcharts.net/',
+    target: '_blank',
+  },
+];
 const FOOTER_ZH = {
   代码仓库: CODE_LIB,
   解决方案: SOLUTIONS,
+  团队文化: GROUP,
+  相关资源: RESOURCE,
 };
 const FOOTER_EN = {
   Repository: CODE_LIB,
   Solutions: SOLUTIONS,
+  Group: GROUP,
+  Resource: RESOURCE,
 };
 
 export default () => {
-  const FOOTER =
-    location.pathname.indexOf('zh-CN') !== -1 ? FOOTER_ZH : FOOTER_EN;
-  console.log(location, location.pathname.indexOf('zh-CN'), 'cn');
-  console.log(FOOTER, 'FOOTER');
+  const FOOTER = location.hash.indexOf('zh-CN') !== -1 ? FOOTER_ZH : FOOTER_EN;
   const keysArray = Object.keys(FOOTER) as (keyof typeof FOOTER)[];
   return (
     <div>
@@ -84,12 +109,12 @@ export default () => {
           }}
         >
           <Row>
-            {keysArray.map(item => {
+            {keysArray.map((item, index) => {
               const array: typeof SOLUTIONS = FOOTER[item];
               return (
-                <Col span={6} style={{ textAlign: 'center' }}>
+                <Col span={6} style={{ textAlign: 'center' }} key={index}>
                   <div style={{ fontSize: 16, marginBottom: 20 }}>{item}</div>
-                  {array.map(each => (
+                  {array.map((each, index2) => (
                     <a
                       style={{
                         padding: '5px 0',
@@ -99,6 +124,7 @@ export default () => {
                       }}
                       target={each.target}
                       href={each.url}
+                      key={index2}
                     >
                       {each.name}
                     </a>
