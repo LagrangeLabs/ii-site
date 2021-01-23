@@ -21,7 +21,7 @@ UI 规范组件：[ii-admin-ui](https://github.com/LagrangeLabs/ii-admin-ui)，�
 import { IModal } from 'ii-admin-ui';
 ```
 
-![image](@/docs/assets/Imodal.png)
+![image](@/docs/assets/Imodal.gif)
 
 ### ITabs 组件
 
@@ -29,7 +29,7 @@ import { IModal } from 'ii-admin-ui';
 import { ITabs } from 'ii-admin-ui';
 ```
 
-![image](@/docs/assets/Itab.png)
+![image](@/docs/assets/itab.gif)
 
 ### ITable 组件
 
@@ -69,7 +69,7 @@ export default () => (
 );
 ```
 
-![image](@/docs/assets/InputVerify.png)
+![image](@/docs/assets/InputVerify.gif)
 
 ### SelectSearch 搜索下拉框
 
@@ -118,7 +118,7 @@ export default () => {
 };
 ```
 
-![image](@/docs/assets/IUpload.png)
+![image](@/docs/assets/IUpload.gif)
 
 ### SearchTree 树结构组件
 
@@ -127,60 +127,12 @@ import React from 'react';
 import { SearchTree } from 'ii-admin-base';
 import { CarryOutOutlined, PlayCircleFilled } from '@ant-design/icons';
 
-const treeData = [
-  {
-    hhh: '0-0',
-    lll: '0-0',
-    selectable: false,
-    disabled: true,
-    kkk: [
-      {
-        hhh: '0-0-0',
-        lll: '0-0-0',
-        kkk: [
-          { hhh: '0-0-0-0', lll: '0-0-0-0' },
-          { hhh: '0-0-0-1', lll: '0-0-0-1' },
-          { hhh: '0-0-0-2', lll: '0-0-0-2' },
-        ],
-      },
-      {
-        hhh: 'Suyana',
-        lll: '0-0-1',
-        kkk: [
-          { hhh: '0-0-1-0', lll: '0-0-1-0' },
-          { hhh: '0-0-1-1', lll: '0-0-1-1' },
-          { hhh: '0-0-1-2', lll: '0-0-1-2' },
-        ],
-      },
-      {
-        hhh: '0-0-2',
-        lll: '0-0-2',
-        selectable: false,
-        disabled: true,
-      },
-    ],
-  },
-  {
-    hhh: '0-1',
-    lll: '0-1',
-    kkk: [
-      { hhh: '0-1-0-0', lll: '0-1-0-0' },
-      { hhh: '0-1-0-1', lll: '0-1-0-1' },
-      { hhh: '0-1-0-2', lll: '0-1-0-2' },
-    ],
-  },
-  {
-    hhh: '0-2',
-    lll: '0-2',
-  },
-];
-
 export default () => (
   <SearchTree
     treeData={treeData}
-    titleField="hhh"
-    keyField="lll"
-    childrenField="kkk"
+    titleField="字段名"
+    keyField="字段名"
+    childrenField="字段名"
     iconTag={[<CarryOutOutlined />, <PlayCircleFilled />]}
     showIcon
     showSearch={true}
@@ -188,7 +140,25 @@ export default () => (
 );
 ```
 
-![image](@/docs/assets/SearchTree.png)
+![image](@/docs/assets/SearchTree.gif)
+
+### ISelectTree 树结构组件
+
+```
+import React from 'react';
+import { ISelectTree } from 'ii-admin-base';
+export default () => (
+  <ISelectTree
+    treeData={treeData}
+    titleField="字段名"
+    keyField=字段名"
+    childrenField="字段名"
+    style={{ width: 300 }}
+  />
+);
+```
+
+![image](@/docs/assets/IselectTree.gif)
 
 ## UI 业务组件
 
@@ -216,7 +186,7 @@ import { RichText } from 'ii-admin-business';
 export default () => <RichText />;
 ```
 
-![image](@/docs/assets/RichText.png)
+![image](@/docs/assets/RichText.gif)
 
 ### form 表单 常用封装
 
@@ -224,139 +194,7 @@ export default () => <RichText />;
 import React from 'react';
 import { IForm } from 'ii-admin-business';
 import { Form, Button, Row, Col } from 'antd';
-const treeData = [
-  {
-    title: '大部门1',
-    id: '0-1',
-    child: [
-      { title: '小部门1', id: '0-1-0-0' },
-      { title: '小部门2', id: '0-1-0-1' },
-      { title: '小部门3', id: '0-1-0-2' },
-    ],
-  },
-  {
-    title: '大部门2',
-    id: '0-2',
-  },
-];
-const DEMO_FORM = [
-  {
-    type: 'select',
-    placeholder: '请选择企业规模',
-    label: '企业规模',
-    option: [
-      { key: '1-50人', value: '1-50人' },
-      { key: '50-100人', value: '50-100人' },
-      { key: '101-150人', value: '101-150人' },
-    ],
-    name: 'select',
-  },
-  {
-    type: 'multiselect',
-    placeholder: '请选择企业规模复选',
-    label: '企业规模复选',
-    option: [
-      { key: '1-50人', value: '1-50人' },
-      { key: '50-100人', value: '50-100人' },
-      { key: '101-150人', value: '101-150人' },
-    ],
-    name: 'multiselect',
-  },
-  {
-    type: 'selectSearch',
-    placeholder: '输入关键字',
-    label: '远程搜索复选框',
-    option: [],
-    name: 'selectSearch',
-    getOption: data => {
-      return data.map((item: any) => ({ key: item, value: item }));
-    },
-    fetchOption: () => {
-      return new Promise(resolve => {
-        resolve(['searchData1', 'searchData2']);
-      });
-    },
-    getParams: value => value,
-  },
-  {
-    type: 'select',
-    label: '关联父级',
-    name: 'parentCode',
-    childName: 'childCode',
-    option: [
-      { key: '选项一', value: '1' },
-      { key: '选项二', value: '2' },
-    ],
-  },
-  {
-    type: 'select',
-    label: '关联子级',
-    name: 'childCode',
-    parentName: 'parentCode',
-    originOption: {
-      '1': [
-        { key: '子选项一', value: '子1' },
-        { key: '子选项二', value: '子2' },
-      ],
-      '2': [
-        { key: '子选项三', value: '子3' },
-        { key: '子选项四', value: '子4' },
-      ],
-    },
-    option: [],
-  },
-  {
-    type: 'phone',
-    placeholder: '获取验证码',
-    label: '验证码',
-    name: 'code',
-  },
-  {
-    type: 'input',
-    placeholder: '隐藏该字段，默认传参值',
-    hidden: true,
-    value: '默认传参',
-    label: '企业资质',
-    name: 'input',
-  },
-  {
-    type: 'date',
-    placeholder: '输入日期',
-    label: '日期',
-    name: 'date',
-  },
-  {
-    type: 'number',
-    placeholder: '输入数字',
-    label: '数字',
-    name: 'number',
-  },
-  {
-    type: 'selectTree',
-    label: '下拉组织树',
-    name: 'selectTree',
-    treeData,
-    titleField: 'title',
-    keyField: 'id',
-    childrenField: 'child',
-  },
-  {
-    type: 'upload',
-    label: '上传附件',
-    name: 'upload',
-    extra: ['支持扩展名：.word .pdf', '建议上传30M以内大小的PDF文件'],
-    describe: '点击或将PDF拖拽到这里上传',
-    itemStyle: { width: '300px', height: '150px', background: '#fbfdff' },
-    rules: [],
-  },
-  {
-    type: 'cronInput',
-    label: 'cron表达式',
-    name: 'cronInput',
-    itemStyle: { width: '600px' },
-    rules: [],
-  },
-];
+
 export default () => {
   const [form] = Form.useForm();
   const getFormValues = () => {
@@ -389,7 +227,7 @@ export default () => {
 };
 ```
 
-![image](@/docs/assets/Iform.png)
+![image](@/docs/assets/Iform.gif)
 
 ### ScrollPdf 无限滚动
 
@@ -474,7 +312,7 @@ export default () => {
 };
 ```
 
-![image](@/docs/assets/IScrollPdf.png)
+![image](@/docs/assets/IScrollPdf.gif)
 
 ### PageTable 页面列表组件
 
@@ -493,74 +331,6 @@ export default () => {
     needPatchDelete: true,
     needSelect: true,
   });
-  const treeData = [
-    {
-      hhh: '0-0',
-      lll: '0-0',
-      kkk: [
-        {
-          hhh: 'name',
-          lll: 'value',
-          kkk: [
-            { hhh: 'name-0', lll: 'value-0' },
-            { hhh: 'name-1', lll: 'value-1' },
-            { hhh: 'name-2', lll: 'value-2' },
-          ],
-        },
-        {
-          hhh: 'Suyana',
-          lll: '0-0-1',
-          kkk: [
-            { hhh: '0-0-1-0', lll: '0-0-1-0' },
-            { hhh: '0-0-1-1', lll: '0-0-1-1' },
-            { hhh: '0-0-1-2', lll: '0-0-1-2' },
-          ],
-        },
-        {
-          hhh: '0-0-2',
-          lll: '0-0-2',
-        },
-      ],
-    },
-    {
-      hhh: '0-1',
-      lll: '0-1',
-      kkk: [
-        { hhh: '0-1-0-0', lll: '0-1-0-0' },
-        { hhh: '0-1-0-1', lll: '0-1-0-1' },
-        { hhh: '0-1-0-2', lll: '0-1-0-2' },
-      ],
-    },
-    {
-      hhh: '0-2',
-      lll: '0-2',
-    },
-  ];
-  const filters = [
-    {
-      type: 'search',
-      placeholder: '请输入项目名称',
-      filter: 'name',
-      width: '30%',
-      className: 'testinput',
-    },
-    {
-      type: 'rangepicker',
-      placeholder: '',
-      filter: ['startDate', 'endDate'],
-      width: '40%',
-    },
-  ];
-  const tableList = [
-    { key: '名称', id: '1', value: 'ming' },
-    { key: '名称2', id: '2', value: 'ming' },
-    { key: '名称3', id: '3', value: 'ming' },
-  ];
-  const columns = [
-    { dataIndex: 'serialNumber', title: '序号' },
-    { dataIndex: 'key', title: '第一列', sorter: true },
-    { dataIndex: 'value', title: '第二列', sorter: true },
-  ];
   const deleteCallback = value => {
     console.log(value, 'sdfsdfsdf');
   };
@@ -645,7 +415,7 @@ export default () => {
 
 ```
 
-![image](@/docs/assets/IPageTable.png)
+![image](@/docs/assets/IPageTable.gif)
 
 ### IPageHeader 标题栏
 
@@ -765,7 +535,7 @@ export default () => {
 };
 ```
 
-![image](@/docs/assets/RadioDatePicker.png)
+![image](@/docs/assets/RadioDatePicker.gif)
 
 ### FilterOptions 搜索条件组件
 
